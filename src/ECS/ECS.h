@@ -5,7 +5,7 @@
 #include <vector>
 #include <iterator>
 #include <unordered_map>
-#include <type_index>
+#include <typeindex>
 
 const unsigned int MAX_COMPONENTS = 32;
 
