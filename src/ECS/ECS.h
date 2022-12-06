@@ -137,25 +137,39 @@ private:
 public:
 	Registry() = default;
 
-	//TODO: 
-	Entity CreateEntity();
-	// KillEntity()
-	
-	// AddComponent(Entity entity)
-	// RemoveComponent(Entity entity)
-	// HasComponent(Entity entity) 
-	// GetComponent(Entity entity)
+	void Update();
 
-	// AddSystem()
-	// RemoveSystem()
-	// HasSystem()
-	// GetSystem()
+	Entity CreateEntity();
+
+	template<typename TComponent, typename ...TArgs>
+	void AddComponent(Entity entity, TArgs&& ...args);
+
+
+	template<typename T>
+	void RemoveComponent(Entity entity);
+
+	template<typename T>
+	bool HasComponent(Entity entity) const;
+
+	template<typename T>
+	T& GetComponent(Entity entity) const;
+
+
 };
 
 template <typename IComponent>
 void System::RequireComponent() {
 	const auto componentId = Component<IComponent>::GetId();
 	componentSignature.set(componentId);
+}
+
+
+template<typename TComponent, typename ...TArgs>
+void Registry::AddComponent(Entity entity, TArgs&& ...args) {
+	const auto componentId = Component<TComponent>::GetId();
+	const auto entityId = entity.GetId();
+
+	TComponent newComponent(std::forward<TArgs>(args)...);
 }
 
 #endif // ! ECS_H

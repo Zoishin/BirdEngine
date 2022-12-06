@@ -24,12 +24,16 @@ const Signature& System::GetComponentSignature() const{
 	return componentSignature;
 }
 
-Entity Registry::CreateEntity()
-{
+Entity Registry::CreateEntity(){
 	int entityId = numEntities++;
 	Entity entity(entityId);
 
 	entitesToBeAdded.insert(entity);
-	Logger::Log("Entity created with id = " + entityId);
+	Logger::Log("Entity created with id = " + std::to_string(entityId));
 	return entity;
+}
+
+void Registry::Update() {
+	//TODO: Add the entites that are waiting to be created to the active systems
+	//TODO: Remove the entites that are waiting to be killed from the active systems
 }
