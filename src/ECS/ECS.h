@@ -22,6 +22,7 @@ using Signature = std::bitset<MAX_COMPONENTS>;
 
 struct IComponent {
 protected:
+	//[0,...
 	static int nextId;
 };
 
@@ -125,7 +126,7 @@ private:
 	std::vector<IPool*> componentPools;
 
 	//Vector index == entity id
-	std::vector<Signature> entityComponentSignature;
+	std::vector<Signature> entityComponentSignatures;
 
 	//Map of active system [index == system typeid]
 	std::unordered_map<std::type_index, System*> systems;
@@ -144,7 +145,6 @@ public:
 	template<typename TComponent, typename ...TArgs>
 	void AddComponent(Entity entity, TArgs&& ...args);
 
-
 	template<typename T>
 	void RemoveComponent(Entity entity);
 
@@ -156,6 +156,12 @@ public:
 
 
 };
+
+
+///////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
+
 
 template <typename IComponent>
 void System::RequireComponent() {
@@ -174,7 +180,7 @@ void Registry::AddComponent(Entity entity, TArgs&& ...args) {
 	}
 
 	if (!componentPool[componentId]) {
-		pool<TComponent>* newComponentPool = new Pool<TComponent>();
+		Pool<TComponent>* newComponentPool = new Pool<TComponent>();
 		componentPools[componentId] = newComponentPool;
 	}
 
@@ -187,7 +193,21 @@ void Registry::AddComponent(Entity entity, TArgs&& ...args) {
 	TComponent newComponent(std::forward<TArgs>(args)...);
 
 	componentPool->Set(entityId, newComponent);
-	entityComponentSignature[entityId].set(componentId);
+	entityComponentSignatures[entityId].set(componentId);
+}
+
+template<typename T>
+void Registry::RemoveComponent(Entity entity) {
+	const auto componentId = Component<IComponent>::GetId();
+	const auto entityId = entity.GetId();
+	entityComponentSignatures[entityId].set(componentId, false);
+}
+
+template<typename T>
+bool Registry::HasComponent(Entity entity) const {
+	const auto componentId = Component<IComponent>::GetId();
+	const auto entityId = entity.GetId();
+	entityComponentSignatures[entityId].test(componentId);
 }
 
 #endif // ! ECS_H
