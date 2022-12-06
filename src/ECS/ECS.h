@@ -3,9 +3,12 @@
 
 #include <bitset>
 #include <vector>
+#include <set>
 #include <iterator>
 #include <unordered_map>
 #include <typeindex>
+
+#include "../Logger/Logger.h"
 
 const unsigned int MAX_COMPONENTS = 32;
 
@@ -126,7 +129,27 @@ private:
 
 	//Map of active system [index == system typeid]
 	std::unordered_map<std::type_index, System*> systems;
+	
+	//Set of entites that are flagged to be added or removed in the next registry Update()
+	std::set<Entity> entitesToBeAdded;
+	std::set<Entity> entitesToBeKilled;
 
+public:
+	Registry() = default;
+
+	//TODO: 
+	Entity CreateEntity();
+	// KillEntity()
+	
+	// AddComponent(Entity entity)
+	// RemoveComponent(Entity entity)
+	// HasComponent(Entity entity) 
+	// GetComponent(Entity entity)
+
+	// AddSystem()
+	// RemoveSystem()
+	// HasSystem()
+	// GetSystem()
 };
 
 template <typename IComponent>
