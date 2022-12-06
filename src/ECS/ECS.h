@@ -150,7 +150,7 @@ public:
 	//System Management
 	template<typename TSystem, typename ...TArgs> void AddSystem(TArgs&& ...args);
 	template<typename TSystem> void RemoveSystem();
-	template<typename TSystem> bool HasSystem();
+	template<typename TSystem> bool HasSystem() const;
 	template<typename TSystem> TSystem& GetSystem() const;
 
 };
@@ -212,7 +212,17 @@ template<typename TSystem, typename ...TArgs>
 void Registry::AddSystem(TArgs&& ...args){
 	TSystem* newSystem(new TSystem(std::forward<TArgs>(args)...));
 	systems.insert(std::make_pair(std::type_index(typeid(TSystem)), newSystem));
+}
 
+template<typename Tsystem>
+void Registry::RemoveSystem() {
+	systems.erase(system);
+	auto system = systems.find(std::type_index(typeid(TSystem)));
+}
+
+template<typename TSystem>
+bool Registry::HasSystem() const {
+	return systems.find(std::type_index(typeid(TSystem))) != systems.end();
 }
 
 #endif // ! ECS_H
