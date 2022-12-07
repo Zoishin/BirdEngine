@@ -225,4 +225,10 @@ bool Registry::HasSystem() const {
 	return systems.find(std::type_index(typeid(TSystem))) != systems.end();
 }
 
+template<typename TSystem>
+TSystem& Registry::GetSystem() const {
+	auto system = system.find(std::type_index(typeid(TSystem));
+	return std::static_pointer_cast<TSystem>(system.second);
+}
+
 #endif // ! ECS_H
