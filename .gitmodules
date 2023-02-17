@@ -1,0 +1,3 @@
+[submodule "BirdEngine/vendor/spdlog"]
+	path = BirdEngine/vendor/spdlog
+	url = https://github.com/gabime/spdlog.git
