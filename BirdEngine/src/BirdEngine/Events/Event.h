@@ -2,8 +2,6 @@
 
 #include "BirdEngine/Core.h"
 
-#include <string>
-#include <functional>
 
 namespace BE {
 

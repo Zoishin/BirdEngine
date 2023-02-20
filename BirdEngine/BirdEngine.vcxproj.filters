@@ -34,6 +34,7 @@
     <ClInclude Include="src\BirdEngine\Log.h">
       <Filter>BirdEngine</Filter>
     </ClInclude>
+    <ClInclude Include="src\bepch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\BirdEngine\Application.cpp">
@@ -42,5 +43,6 @@
     <ClCompile Include="src\BirdEngine\Log.cpp">
       <Filter>BirdEngine</Filter>
     </ClCompile>
+    <ClCompile Include="src\bepch.cpp" />
   </ItemGroup>
 </Project>
