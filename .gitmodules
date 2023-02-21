@@ -1,3 +1,6 @@
 [submodule "BirdEngine/vendor/spdlog"]
 	path = BirdEngine/vendor/spdlog
 	url = https://github.com/gabime/spdlog.git
+[submodule "BirdEngine/vendor/GLFW"]
+	path = BirdEngine/vendor/GLFW
+	url = https://github.com/TheCherno/glfw
