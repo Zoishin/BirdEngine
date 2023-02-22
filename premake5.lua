@@ -11,6 +11,14 @@ workspace "BirdEngine" --解决方案名称
 --详细的所有支持的tokens 可参考 [https://github.com/premake/premake-core/wiki/Tokens]
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+--Include directories relatives to root folder (solution directory)
+IncludeDir = {}
+IncludeDir["GLFW"] = "BirdEngine/vendor/GLFW/include"
+
+--将GLFW库中的premake5.lua包含
+include "BirdEngine/vendor/GLFW"
+
+
 project "BirdEngine" --项目名称
     location "BirdEngine" --相对路径
     kind "SharedLib" --表明该项目是dll动态库
@@ -19,6 +27,7 @@ project "BirdEngine" --项目名称
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")--输出目录
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")--中间临时文件的目录
 
+    --预编译头文件
     pchheader "bepch.h"
     pchsource "BirdEngine/src/bepch.cpp"
 
@@ -31,7 +40,14 @@ project "BirdEngine" --项目名称
     includedirs--附加包含目录
     {
         "%{prj.name}/src",
-        "%{prj.name}/vendor/spdlog/include"
+        "%{prj.name}/vendor/spdlog/include",
+        "%{IncludeDir.GLFW}"
+    }
+
+    links
+    {
+        "GLFW",
+        "opengl32.lib"
     }
 
     filter "system:windows"--windows平台的配置

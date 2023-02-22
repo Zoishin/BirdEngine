@@ -35,6 +35,8 @@
       <Filter>BirdEngine</Filter>
     </ClInclude>
     <ClInclude Include="src\bepch.h" />
+    <ClInclude Include="src\BirdEngine\Window.h" />
+    <ClInclude Include="src\BirdEngine\Platform\WindowsWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\BirdEngine\Application.cpp">
@@ -44,5 +46,6 @@
       <Filter>BirdEngine</Filter>
     </ClCompile>
     <ClCompile Include="src\bepch.cpp" />
+    <ClCompile Include="src\BirdEngine\Platform\WindowsWindow.cpp" />
   </ItemGroup>
 </Project>
