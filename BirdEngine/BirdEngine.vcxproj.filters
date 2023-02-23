@@ -7,6 +7,9 @@
     <Filter Include="BirdEngine\Events">
       <UniqueIdentifier>{40EAD2FC-AC00-D192-F577-5CB461CDA11A}</UniqueIdentifier>
     </Filter>
+    <Filter Include="BirdEngine\Platform">
+      <UniqueIdentifier>{B0815499-1CE3-31A7-A550-785911B16866}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\BirdEngine.h" />
@@ -34,9 +37,13 @@
     <ClInclude Include="src\BirdEngine\Log.h">
       <Filter>BirdEngine</Filter>
     </ClInclude>
+    <ClInclude Include="src\BirdEngine\Platform\WindowsWindow.h">
+      <Filter>BirdEngine\Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BirdEngine\Window.h">
+      <Filter>BirdEngine</Filter>
+    </ClInclude>
     <ClInclude Include="src\bepch.h" />
-    <ClInclude Include="src\BirdEngine\Window.h" />
-    <ClInclude Include="src\BirdEngine\Platform\WindowsWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\BirdEngine\Application.cpp">
@@ -45,7 +52,9 @@
     <ClCompile Include="src\BirdEngine\Log.cpp">
       <Filter>BirdEngine</Filter>
     </ClCompile>
+    <ClCompile Include="src\BirdEngine\Platform\WindowsWindow.cpp">
+      <Filter>BirdEngine\Platform</Filter>
+    </ClCompile>
     <ClCompile Include="src\bepch.cpp" />
-    <ClCompile Include="src\BirdEngine\Platform\WindowsWindow.cpp" />
   </ItemGroup>
 </Project>

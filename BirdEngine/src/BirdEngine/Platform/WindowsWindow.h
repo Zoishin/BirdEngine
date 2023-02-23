@@ -3,11 +3,15 @@
 #include "BirdEngine/Window.h"
 #include "GLFW/glfw3.h"
 
+#include "BirdEngine/Log.h"
+
+
 namespace BE {
 	///
 	class WindowsWindow : public Window {
 	public:
 		WindowsWindow(const WindowProps& props);
+		//TODO:
 		virtual ~WindowsWindow();
 		
 		void OnUpdate() override;

@@ -26,7 +26,8 @@ namespace BE {
 	class BE_API Window 
 	{
 	public:
-		using EventCallbackFn = std::function<void>(Event&);
+		//TODO:
+		using EventCallbackFn = std::function<void(Event&)>;
 
 		virtual ~Window() {};
 
@@ -40,6 +41,7 @@ namespace BE {
 		virtual void SetVSync(bool enabled) = 0;
 		virtual bool IsVSync() const = 0;
 
+		//Implemented on a specific platform
 		static Window* Create(const WindowProps& props = WindowProps());
 	};
 	

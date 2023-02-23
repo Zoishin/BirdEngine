@@ -30,10 +30,12 @@ namespace BE {
 #define BE_CORE_TRACE(...)		::BE::Log::GetCoreLogger()->trace(__VA_ARGS__)
 #define BE_CORE_FATAL(...)		::BE::Log::GetCoreLogger()->fatal(__VA_ARGS__)
 
+
 //Client Log Macros
 #define BE_Client_ERROR(...)	::BE::Log::GetClientLogger()->error(__VA_ARGS__)
 #define BE_Client_WARN(...)		::BE::Log::GetClientLogger()->warn(__VA_ARGS__)
 #define BE_Client_INFO(...)		::BE::Log::GetClientLogger()->info(__VA_ARGS__)
 #define BE_Client_TRACE(...)	::BE::Log::GetClientLogger()->trace(__VA_ARGS__)
 #define BE_Client_FATAL(...)	::BE::Log::GetClientLogger()->fatal(__VA_ARGS__)
+
 

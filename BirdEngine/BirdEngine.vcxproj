@@ -158,17 +158,17 @@
     <ClInclude Include="src\BirdEngine\Events\KeyEvent.h" />
     <ClInclude Include="src\BirdEngine\Events\MouseEvent.h" />
     <ClInclude Include="src\BirdEngine\Log.h" />
-    <ClInclude Include="src\bepch.h" />
     <ClInclude Include="src\BirdEngine\Platform\WindowsWindow.h" />
     <ClInclude Include="src\BirdEngine\Window.h" />
+    <ClInclude Include="src\bepch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\BirdEngine\Application.cpp" />
     <ClCompile Include="src\BirdEngine\Log.cpp" />
+    <ClCompile Include="src\BirdEngine\Platform\WindowsWindow.cpp" />
     <ClCompile Include="src\bepch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="src\BirdEngine\Platform\WindowsWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="vendor\GLFW\GLFW.vcxproj">
