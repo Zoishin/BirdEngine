@@ -4,7 +4,7 @@
 #include "GLFW/glfw3.h"
 
 namespace BE {
-	//
+	///
 	class WindowsWindow : public Window {
 	public:
 		WindowsWindow(const WindowProps& props);
