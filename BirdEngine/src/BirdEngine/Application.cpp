@@ -8,10 +8,16 @@ namespace BE {
 
 	Application::Application() {
 		m_Window = std::unique_ptr<Window>(Window::Create());
+		//TODO:
+		m_Window->SetEventCallback(std::bind(&Application::OnEvent, this, std::placeholders::_1));
 	}
 
 	Application::~Application() {
 
+	}
+
+	void Application::OnEvent(Event& e) {
+		
 	}
 
 	void Application::Run() {

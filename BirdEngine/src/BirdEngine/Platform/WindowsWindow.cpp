@@ -42,7 +42,7 @@ namespace BE {
 	void WindowsWindow::OnUpdate() {
 		glfwPollEvents();
 		glfwSwapBuffers(m_Window);
-	}
+	} 
 
 	void WindowsWindow::SetVSync(bool enabled) {
 		if (enabled)

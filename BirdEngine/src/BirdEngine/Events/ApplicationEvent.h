@@ -4,8 +4,6 @@
 
 
 
-//WindowClose, WindowResize, WindowFocus, WindowLostFocus, WindowMoved,
-
 namespace BE {
 
 	class BE_API WindowResizeEvent : public Event {
