@@ -17,7 +17,7 @@ namespace BE {
 	}
 
 	void Application::OnEvent(Event& e) {
-		
+		BE_CORE_INFO("{0}", e);
 	}
 
 	void Application::Run() {
